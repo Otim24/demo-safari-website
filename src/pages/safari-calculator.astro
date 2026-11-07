@@ -1,0 +1,384 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { companyData } from '../data/company';
+---
+
+<Layout
+  title="Interactive Safari Cost Estimator & Trip Planner"
+  description="Estimate your bespoke Ugandan safari costs: mountain gorilla habituation permits, custom 4x4 Land Cruiser transport, and luxury eco-lodge accommodation tiers."
+>
+
+  <!-- Hero Header -->
+  <section class="bg-[#0e231b] text-white py-20 relative overflow-hidden">
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="inline-block px-3 py-1 text-[11px] font-semibold tracking-wider uppercase bg-[#16382c] text-[#dfb674] rounded border border-[#c89b53]/30">
+        Transparent Planning Tool
+      </div>
+      <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight">
+        Interactive Safari Cost Estimator
+      </h1>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#ded6c4] font-light leading-relaxed">
+        Calculate transparent estimates for your bespoke Ugandan expedition based on official Uganda Wildlife Authority permit tariffs, vehicle charter, and lodge comfort tiers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Calculator Grid -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- Left Column: Interactive Controls -->
+      <div class="lg:col-span-7 bg-white rounded-xl border border-[#ded7c8] p-6 sm:p-8 shadow-sm space-y-8 fade-in-view">
+        
+        <div>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-1">
+            Step 1: Party & Duration
+          </span>
+          <h2 class="font-serif text-2xl font-bold text-[#14261f]">
+            Travel Parameters
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="calc-travelers" class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-2">
+              Number of Travelers: <span id="val-travelers" class="text-[#c89b53] font-bold text-sm ml-1">2 Guests</span>
+            </label>
+            <input
+              type="range"
+              id="calc-travelers"
+              min="1"
+              max="8"
+              value="2"
+              class="w-full accent-[#c89b53] cursor-pointer"
+            />
+            <div class="flex justify-between text-[11px] text-[#8a7f6f] mt-1">
+              <span>1 Solo</span>
+              <span>2 Couple</span>
+              <span>4 Family</span>
+              <span>8 Group</span>
+            </div>
+          </div>
+
+          <div>
+            <label for="calc-days" class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-2">
+              Expedition Length: <span id="val-days" class="text-[#c89b53] font-bold text-sm ml-1">8 Days</span>
+            </label>
+            <input
+              type="range"
+              id="calc-days"
+              min="5"
+              max="14"
+              value="8"
+              class="w-full accent-[#c89b53] cursor-pointer"
+            />
+            <div class="flex justify-between text-[11px] text-[#8a7f6f] mt-1">
+              <span>5 Days</span>
+              <span>8 Days</span>
+              <span>10 Days</span>
+              <span>14 Days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Season Selection -->
+        <div class="border-t border-[#f0ede6] pt-6 space-y-3">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Step 2: Travel Season
+          </span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <label class="flex items-start space-x-3 p-3.5 rounded border border-[#c89b53] bg-[#f9f7f3] cursor-pointer">
+              <input type="radio" name="calc-season" value="high" checked class="mt-0.5 text-[#c89b53] focus:ring-0" />
+              <div>
+                <span class="font-bold text-[#14261f] block">Peak Dry Season</span>
+                <span class="text-[#736a5c] text-[11px]">June to September & December to February</span>
+              </div>
+            </label>
+            <label class="flex items-start space-x-3 p-3.5 rounded border border-[#dcd6c8] bg-[#f9f7f3] cursor-pointer hover:border-[#c89b53]">
+              <input type="radio" name="calc-season" value="green" class="mt-0.5 text-[#c89b53] focus:ring-0" />
+              <div>
+                <span class="font-bold text-[#14261f] block">Green Season (10% Lodge Savings)</span>
+                <span class="text-[#736a5c] text-[11px]">March to May & October to November</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3: Wildlife Permits -->
+        <div class="border-t border-[#f0ede6] pt-6 space-y-3">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Step 3: UWA Wildlife Permits (Per Person)
+          </span>
+          <p class="text-xs text-[#736a5c]">
+            Official statutory fees issued directly by the Uganda Wildlife Authority.
+          </p>
+
+          <div class="space-y-2.5 text-xs text-[#453f35]">
+            <label class="flex items-center justify-between p-3 rounded border border-[#e5dfd2] bg-[#fdfcf9] cursor-pointer hover:border-[#c89b53]">
+              <div class="flex items-center space-x-3">
+                <input type="checkbox" id="permit-gorilla-habituation" checked class="rounded text-[#c89b53] focus:ring-0" />
+                <span>
+                  <strong class="text-[#14261f] block">Mountain Gorilla Habituation (4 Hours)</strong>
+                  <span class="text-[11px] text-[#736a5c]">Rushaga Sector with UWA Primate Biologists</span>
+                </span>
+              </div>
+              <span class="font-serif font-bold text-[#14261f] text-sm">+$1,500</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded border border-[#e5dfd2] bg-[#fdfcf9] cursor-pointer hover:border-[#c89b53]">
+              <div class="flex items-center space-x-3">
+                <input type="checkbox" id="permit-gorilla-standard" class="rounded text-[#c89b53] focus:ring-0" />
+                <span>
+                  <strong class="text-[#14261f] block">Standard Gorilla Tracking (1 Hour)</strong>
+                  <span class="text-[11px] text-[#736a5c]">Buhoma, Ruhija, Rushaga, or Nkuringo</span>
+                </span>
+              </div>
+              <span class="font-serif font-bold text-[#14261f] text-sm">+$800</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded border border-[#e5dfd2] bg-[#fdfcf9] cursor-pointer hover:border-[#c89b53]">
+              <div class="flex items-center space-x-3">
+                <input type="checkbox" id="permit-chimp" checked class="rounded text-[#c89b53] focus:ring-0" />
+                <span>
+                  <strong class="text-[#14261f] block">Kibale Forest Chimpanzee Tracking</strong>
+                  <span class="text-[11px] text-[#736a5c]">The Primate Capital of East Africa</span>
+                </span>
+              </div>
+              <span class="font-serif font-bold text-[#14261f] text-sm">+$250</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded border border-[#e5dfd2] bg-[#fdfcf9] cursor-pointer hover:border-[#c89b53]">
+              <div class="flex items-center space-x-3">
+                <input type="checkbox" id="permit-golden-monkey" class="rounded text-[#c89b53] focus:ring-0" />
+                <span>
+                  <strong class="text-[#14261f] block">Mgahinga Golden Monkey Tracking</strong>
+                  <span class="text-[11px] text-[#736a5c]">Highland bamboo slopes of Mount Gahinga</span>
+                </span>
+              </div>
+              <span class="font-serif font-bold text-[#14261f] text-sm">+$100</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 4: Accommodation Comfort Tier -->
+        <div class="border-t border-[#f0ede6] pt-6 space-y-3">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Step 4: Accommodation Comfort Tier
+          </span>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <label class="flex flex-col p-3.5 rounded border border-[#c89b53] bg-[#f9f7f3] cursor-pointer">
+              <input type="radio" name="calc-tier" value="luxury" checked class="text-[#c89b53] focus:ring-0 mb-1" />
+              <span class="font-bold text-[#14261f]">Ultra-Luxury</span>
+              <span class="text-[11px] text-[#736a5c]">Clouds, Bwindi Lodge, Ndali Crater ($850/night)</span>
+            </label>
+            <label class="flex flex-col p-3.5 rounded border border-[#dcd6c8] bg-[#f9f7f3] cursor-pointer hover:border-[#c89b53]">
+              <input type="radio" name="calc-tier" value="boutique" class="text-[#c89b53] focus:ring-0 mb-1" />
+              <span class="font-bold text-[#14261f]">Boutique Tented</span>
+              <span class="text-[11px] text-[#736a5c]">Ishasha Wilderness, Elephant Plains ($550/night)</span>
+            </label>
+            <label class="flex flex-col p-3.5 rounded border border-[#dcd6c8] bg-[#f9f7f3] cursor-pointer hover:border-[#c89b53]">
+              <input type="radio" name="calc-tier" value="classic" class="text-[#c89b53] focus:ring-0 mb-1" />
+              <span class="font-bold text-[#14261f]">Classic Safari</span>
+              <span class="text-[11px] text-[#736a5c]">Comfortable eco-lodges ensuite ($350/night)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 5: Transport Mode -->
+        <div class="border-t border-[#f0ede6] pt-6 space-y-3">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Step 5: Ground & Air Logistics
+          </span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <label class="flex items-start space-x-3 p-3.5 rounded border border-[#c89b53] bg-[#f9f7f3] cursor-pointer">
+              <input type="radio" name="calc-transport" value="landcruiser" checked class="mt-0.5 text-[#c89b53] focus:ring-0" />
+              <div>
+                <span class="font-bold text-[#14261f] block">Dedicated 4x4 Land Cruiser</span>
+                <span class="text-[#736a5c] text-[11px]">Private vehicle, fuel, senior naturalist guide throughout</span>
+              </div>
+            </label>
+            <label class="flex items-start space-x-3 p-3.5 rounded border border-[#dcd6c8] bg-[#f9f7f3] cursor-pointer hover:border-[#c89b53]">
+              <input type="radio" name="calc-transport" value="flyin" class="mt-0.5 text-[#c89b53] focus:ring-0" />
+              <div>
+                <span class="font-bold text-[#14261f] block">Fly-In Bush Flight Package</span>
+                <span class="text-[#736a5c] text-[11px]">Scheduled bush flights between Entebbe and park airstrips (+$650/pax)</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Real-Time Cost Summary Ledger (Sticky) -->
+      <div class="lg:col-span-5 sticky top-28 space-y-6">
+        
+        <div class="bg-white rounded-xl border border-[#ded7c8] p-6 sm:p-8 shadow-xl space-y-6 fade-in-view">
+          <div class="border-b border-[#f0ede6] pb-4">
+            <span class="text-[10px] text-[#8c8273] uppercase tracking-wider block font-semibold">
+              Live Expedition Estimation
+            </span>
+            <div class="mt-2 flex items-baseline space-x-2">
+              <span id="display-per-person" class="font-serif text-3xl sm:text-4xl font-bold text-[#14261f]">
+                $6,850
+              </span>
+              <span class="text-xs text-[#6b6457]">/ estimated per guest</span>
+            </div>
+            <div class="mt-1 text-xs text-[#8c8273]">
+              Total Party Estimate: <span id="display-total" class="font-bold text-[#14261f]">$13,700</span>
+            </div>
+          </div>
+
+          <!-- Line-Item Breakdown Ledger -->
+          <div class="space-y-3 text-xs text-[#544e45]">
+            <div class="flex justify-between border-b border-[#f3efe6] pb-2">
+              <span>UWA Wildlife Permits:</span>
+              <span id="ledger-permits" class="font-bold text-[#14261f]">$3,500</span>
+            </div>
+            <div class="flex justify-between border-b border-[#f3efe6] pb-2">
+              <span>Full-Board Accommodations:</span>
+              <span id="ledger-lodging" class="font-bold text-[#14261f]">$5,950</span>
+            </div>
+            <div class="flex justify-between border-b border-[#f3efe6] pb-2">
+              <span>Private 4x4 & Lead Naturalist:</span>
+              <span id="ledger-transport" class="font-bold text-[#14261f]">$3,400</span>
+            </div>
+            <div class="flex justify-between border-b border-[#f3efe6] pb-2">
+              <span>National Park Conservation Fees:</span>
+              <span id="ledger-park-fees" class="font-bold text-[#14261f]">$850</span>
+            </div>
+            <div class="flex justify-between text-[#2c7744] font-medium pt-1">
+              <span>AMREF Aero-Medical Evacuation:</span>
+              <span>Included</span>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="space-y-3 pt-2">
+            <a
+              id="btn-lock-in"
+              href="/contact?calculator=custom"
+              class="w-full inline-block text-center py-3.5 px-4 text-xs font-semibold uppercase tracking-wider text-[#0e231b] bg-[#c89b53] hover:bg-[#d8af6e] rounded transition-colors shadow-md"
+            >
+              Lock In This Custom Proposal
+            </a>
+
+            <a
+              id="btn-whatsapp-estimate"
+              href="https://wa.me/256784811929?text=Hello%20Demo%20Safaris,%20I%20have%20estimated%20a%20safari%20on%20your%20calculator."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center space-x-2 py-3 px-4 text-xs font-medium text-[#14261f] bg-[#f5f2eb] hover:bg-[#ded7c8] rounded transition-colors"
+            >
+              <svg class="w-4 h-4 text-[#2b724c]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.245-.038.384.296.144.346.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.178.21-.077.383.101.173.45 1.488 1.433 2.364.382.34.704.457.946.554.218.087.378.077.518-.087.144-.173.607-.707.768-.953.159-.246.318-.202.534-.116.217.087 1.373.647 1.609.764.236.116.393.173.45.275.058.101.058.592-.086.997z"/>
+              </svg>
+              <span>Instant WhatsApp Discussion (+256 784 811 929)</span>
+            </a>
+          </div>
+
+          <div class="border-t border-[#f0ede6] pt-4 text-[11px] text-[#8a7f6f] space-y-1">
+            <p>• Demonstration Portfolio Calculator Reference</p>
+            <p>• Actual quotes include personalized flight checks</p>
+            <p>• Final rates verified against real UWA availability</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  function setupCalculator() {
+    const inputTravelers = document.getElementById('calc-travelers') as HTMLInputElement | null;
+    const inputDays = document.getElementById('calc-days') as HTMLInputElement | null;
+    const valTravelers = document.getElementById('val-travelers');
+    const valDays = document.getElementById('val-days');
+
+    const permitHabituation = document.getElementById('permit-gorilla-habituation') as HTMLInputElement | null;
+    const permitStandard = document.getElementById('permit-gorilla-standard') as HTMLInputElement | null;
+    const permitChimp = document.getElementById('permit-chimp') as HTMLInputElement | null;
+    const permitGolden = document.getElementById('permit-golden-monkey') as HTMLInputElement | null;
+
+    const displayPerPerson = document.getElementById('display-per-person');
+    const displayTotal = document.getElementById('display-total');
+    const ledgerPermits = document.getElementById('ledger-permits');
+    const ledgerLodging = document.getElementById('ledger-lodging');
+    const ledgerTransport = document.getElementById('ledger-transport');
+    const ledgerParkFees = document.getElementById('ledger-park-fees');
+    const btnLockIn = document.getElementById('btn-lock-in') as HTMLAnchorElement | null;
+    const btnWhatsApp = document.getElementById('btn-whatsapp-estimate') as HTMLAnchorElement | null;
+
+    if (!inputTravelers || !inputDays) return;
+
+    function recalculate() {
+      const travelers = parseInt(inputTravelers.value, 10);
+      const days = parseInt(inputDays.value, 10);
+
+      if (valTravelers) valTravelers.textContent = `${travelers} ${travelers === 1 ? 'Guest' : 'Guests'}`;
+      if (valDays) valDays.textContent = `${days} Days`;
+
+      // Season discount
+      const selectedSeason = (document.querySelector('input[name="calc-season"]:checked') as HTMLInputElement)?.value || 'high';
+      const seasonFactor = selectedSeason === 'green' ? 0.90 : 1.0;
+
+      // Accommodation tier rates per person per night
+      const selectedTier = (document.querySelector('input[name="calc-tier"]:checked') as HTMLInputElement)?.value || 'luxury';
+      let nightlyRatePerPerson = 850;
+      if (selectedTier === 'boutique') nightlyRatePerPerson = 550;
+      if (selectedTier === 'classic') nightlyRatePerPerson = 350;
+
+      const lodgingTotalPerPerson = Math.round((days - 1) * nightlyRatePerPerson * seasonFactor);
+
+      // Permits per person
+      let permitsPerPerson = 0;
+      if (permitHabituation?.checked) permitsPerPerson += 1500;
+      if (permitStandard?.checked) permitsPerPerson += 800;
+      if (permitChimp?.checked) permitsPerPerson += 250;
+      if (permitGolden?.checked) permitsPerPerson += 100;
+
+      // Transport: vehicle cost shared among travelers
+      const selectedTransport = (document.querySelector('input[name="calc-transport"]:checked') as HTMLInputElement)?.value || 'landcruiser';
+      const vehicleDailyCost = 350; // vehicle + guide + fuel
+      const flightAddonPerPerson = selectedTransport === 'flyin' ? 650 : 0;
+      const transportTotalPerPerson = Math.round((days * vehicleDailyCost / travelers) + flightAddonPerPerson);
+
+      // Park conservation fees per person ($45/day average)
+      const parkFeesPerPerson = days * 45;
+
+      const totalPerPerson = permitsPerPerson + lodgingTotalPerPerson + transportTotalPerPerson + parkFeesPerPerson;
+      const totalParty = totalPerPerson * travelers;
+
+      if (displayPerPerson) displayPerPerson.textContent = `$${totalPerPerson.toLocaleString()}`;
+      if (displayTotal) displayTotal.textContent = `$${totalParty.toLocaleString()}`;
+      if (ledgerPermits) ledgerPermits.textContent = `$${(permitsPerPerson * travelers).toLocaleString()}`;
+      if (ledgerLodging) ledgerLodging.textContent = `$${(lodgingTotalPerPerson * travelers).toLocaleString()}`;
+      if (ledgerTransport) ledgerTransport.textContent = `$${(transportTotalPerPerson * travelers).toLocaleString()}`;
+      if (ledgerParkFees) ledgerParkFees.textContent = `$${(parkFeesPerPerson * travelers).toLocaleString()}`;
+
+      // Update link parameters
+      if (btnLockIn) {
+        btnLockIn.href = `/contact?calculator=custom&days=${days}&travelers=${travelers}&tier=${selectedTier}&estimated=${totalPerPerson}`;
+      }
+      if (btnWhatsApp) {
+        const text = encodeURIComponent(`Hello Demo Safaris, I used your safari calculator: ${days} days, ${travelers} travelers, ${selectedTier} tier. Estimated: $${totalPerPerson}/person. Please provide full itinerary proposal.`);
+        btnWhatsApp.href = `https://wa.me/256784811929?text=${text}`;
+      }
+    }
+
+    // Bind event listeners
+    inputTravelers.addEventListener('input', recalculate);
+    inputDays.addEventListener('input', recalculate);
+    document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el => {
+      el.addEventListener('change', recalculate);
+    });
+
+    recalculate();
+  }
+
+  setupCalculator();
+  document.addEventListener('astro:page-load', setupCalculator);
+</script>
+

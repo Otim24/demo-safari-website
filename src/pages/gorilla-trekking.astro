@@ -1,0 +1,402 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SafariCard from '../components/SafariCard.astro';
+import { safarisData } from '../data/safaris';
+
+const gorillaSafaris = safarisData.filter((s) => s.category === 'Primate & Gorilla');
+---
+
+<Layout
+  title="Uganda Gorilla Trekking & Habituation Authority Guide"
+  description="Comprehensive authority guide to Uganda mountain gorilla tracking in Bwindi Impenetrable and Mgahinga: permits, Buhoma vs Rushaga sectors, habituation vs standard tracking, packing checklist, and conservation ethics."
+>
+
+  <!-- Hero Header -->
+  <section class="bg-[#0b1c15] text-white py-24 relative overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=2000&q=80"
+        alt="Mountain Gorilla in Bwindi Impenetrable Forest"
+        class="w-full h-full object-cover object-center brightness-[0.45]"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0e231b] via-[#0b1c15]/60 to-black/50"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
+      <div class="inline-block px-3 py-1 text-[11px] font-semibold tracking-wider uppercase bg-[#16382c]/80 text-[#dfb674] rounded border border-[#c89b53]/30">
+        Field Authority & Permit Allocation
+      </div>
+      <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight">
+        The Definitive Uganda <br />
+        <span class="italic text-[#dfb674] font-normal">Mountain Gorilla Trekking</span> Guide
+      </h1>
+      <p class="max-w-3xl mx-auto text-sm sm:text-base text-[#ded6c4] font-light leading-relaxed">
+        Everything you need to know about tracking endangered mountain gorillas across Bwindi Impenetrable National Park and Mgahinga Gorilla National Park: permits, sectors, habituation experiences, and preparation.
+      </p>
+
+      <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="#comparison"
+          class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-[#0e231b] bg-[#c89b53] hover:bg-[#d8af6e] rounded transition-colors shadow"
+        >
+          Compare Tracking vs Habituation
+        </a>
+        <a
+          href="/contact"
+          class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white bg-[#1a4031] hover:bg-[#235541] rounded border border-[#c89b53]/40 transition-colors"
+        >
+          Reserve 2026 / 2027 Permits
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: The Two Gorilla Experiences Compared -->
+  <section id="comparison" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-in-view">
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-2">
+        Permit Options
+      </span>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#14261f]">
+        Standard Tracking vs Habituation Experience
+      </h2>
+      <p class="mt-3 text-sm text-[#615a4f]">
+        Uganda is the only country on Earth where visitors can participate in official wild gorilla habituation alongside research biologists.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Standard Tracking Card -->
+      <div class="bg-white rounded-xl border border-[#dcd6c8] p-8 shadow-sm flex flex-col justify-between space-y-6 fade-in-view">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-[#f0ede6] pb-4">
+            <div>
+              <span class="text-xs uppercase font-bold tracking-wider text-[#8a7f6f] block">Option One</span>
+              <h3 class="font-serif text-2xl font-bold text-[#14261f]">Standard Gorilla Tracking</h3>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-[#8a7f6f] block">UWA Tariff</span>
+              <span class="font-serif text-2xl font-bold text-[#14261f]">$800</span>
+              <span class="text-[10px] text-[#8a7f6f] block">per foreign non-resident</span>
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-[#544e45] leading-relaxed">
+            Hike into the mountain rainforest in a group of up to eight visitors accompanied by an armed UWA lead ranger and two trackers with machetes. Once the habituated family is located, you spend exactly one hour observing them feeding, grooming, and playing.
+          </p>
+
+          <div class="space-y-2.5 text-xs text-[#453f35] pt-2">
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#2c7744] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Observation Time:</strong> Exactly 1 hour with the family</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#2c7744] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Group Size:</strong> Maximum 8 guests per gorilla family</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#2c7744] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Available Sectors:</strong> Buhoma, Ruhija, Rushaga, Nkuringo, Mgahinga</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#2c7744] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Habituation Level:</strong> Fully habituated wild groups accustomed to humans</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#f0ede6]">
+          <a
+            href="/contact?interest=standard-gorilla"
+            class="w-full inline-block text-center py-3 text-xs font-semibold uppercase tracking-wider text-[#14261f] bg-[#f5f2eb] hover:bg-[#ded7c8] rounded transition-colors"
+          >
+            Inquire for Standard Tracking
+          </a>
+        </div>
+      </div>
+
+      <!-- Habituation Experience Card -->
+      <div class="bg-white rounded-xl border-2 border-[#c89b53] p-8 shadow-md flex flex-col justify-between space-y-6 relative fade-in-view fade-in-delay-1">
+        <div class="absolute -top-3.5 right-6 bg-[#c89b53] text-[#0e231b] px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider shadow">
+          Exclusive to Uganda
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-[#f0ede6] pb-4">
+            <div>
+              <span class="text-xs uppercase font-bold tracking-wider text-[#c89b53] block">Option Two</span>
+              <h3 class="font-serif text-2xl font-bold text-[#14261f]">Gorilla Habituation Experience</h3>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-[#8a7f6f] block">UWA Tariff</span>
+              <span class="font-serif text-2xl font-bold text-[#c89b53]">$1,500</span>
+              <span class="text-[10px] text-[#8a7f6f] block">per foreign non-resident</span>
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-[#544e45] leading-relaxed">
+            Spend four uninterrupted hours with a semi-habituated gorilla family in the presence of senior primatologists, behavioral researchers, and trackers. Learn how researchers accustom wild primates to human presence without altering their natural social hierarchy.
+          </p>
+
+          <div class="space-y-2.5 text-xs text-[#453f35] pt-2">
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#c89b53] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Observation Time:</strong> 4 full hours in their immediate presence</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#c89b53] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Group Size:</strong> Capped strictly at 4 guests per group</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#c89b53] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Available Sectors:</strong> Exclusively in Rushaga (Southern Bwindi)</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#c89b53] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Science Immersion:</strong> Direct interaction with senior primate research teams</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#f0ede6]">
+          <a
+            href="/contact?interest=habituation-experience"
+            class="w-full inline-block text-center py-3 text-xs font-semibold uppercase tracking-wider text-[#0e231b] bg-[#c89b53] hover:bg-[#d8af6e] rounded transition-colors shadow"
+          >
+            Inquire for Habituation Experience
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Understanding Bwindi Sectors -->
+  <section class="bg-[#f3efe6] py-20 border-y border-[#ded7c8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 fade-in-view">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-2">
+          Geography & Trailheads
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#14261f]">
+          The Four Wilderness Sectors of Bwindi
+        </h2>
+        <p class="mt-3 text-sm text-[#615a4f]">
+          Bwindi is divided into four distinct administrative sectors. Your gorilla permit specifies the exact sector, dictating your lodge location and road logistics.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white p-6 rounded-lg border border-[#ded7c8] shadow-sm space-y-3 fade-in-view">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#c89b53] block">Northern Bwindi</span>
+          <h3 class="font-serif text-xl font-bold text-[#14261f]">Buhoma Sector</h3>
+          <p class="text-xs text-[#544e45] leading-relaxed">
+            The historic birthplace of gorilla tourism in Uganda (established 1993). Lower elevation (around 1,400m), gentler initial hiking slopes, and home to some of Uganda's most legendary luxury lodges.
+          </p>
+          <div class="pt-2 text-[11px] text-[#786f61]">
+            <span class="font-semibold text-[#14261f] block">Key Lodge Partners:</span>
+            Sanctuary Gorilla Forest Camp, Bwindi Lodge by Volcanoes, Mahogany Springs.
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-[#ded7c8] shadow-sm space-y-3 fade-in-view fade-in-delay-1">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#c89b53] block">Eastern Bwindi</span>
+          <h3 class="font-serif text-xl font-bold text-[#14261f]">Ruhija Sector</h3>
+          <p class="text-xs text-[#544e45] leading-relaxed">
+            Highest elevation sector (up to 2,350m) characterized by dramatic misty valleys and cold alpine mornings. Renowned among ornithologists as Africa's premier Albertine Rift birding site.
+          </p>
+          <div class="pt-2 text-[11px] text-[#786f61]">
+            <span class="font-semibold text-[#14261f] block">Key Lodge Partners:</span>
+            Bakiga Lodge, Ruhija Gorilla Safari Lodge, Kiho Gorilla Safari Lodge.
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-[#ded7c8] shadow-sm space-y-3 fade-in-view fade-in-delay-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#c89b53] block">Southern Bwindi</span>
+          <h3 class="font-serif text-xl font-bold text-[#14261f]">Rushaga Sector</h3>
+          <p class="text-xs text-[#544e45] leading-relaxed">
+            Holds the highest concentration of habituated gorilla families in Uganda, as well as the exclusive 4-hour Gorilla Habituation program. Steep, rewarding terrain with deep ancient ravines.
+          </p>
+          <div class="pt-2 text-[11px] text-[#786f61]">
+            <span class="font-semibold text-[#14261f] block">Key Lodge Partners:</span>
+            Four Gorillas Lodge, Chameleon Hill Lodge, Rushaga Gorilla Camp.
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-[#ded7c8] shadow-sm space-y-3 fade-in-view fade-in-delay-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#c89b53] block">South-Western Bwindi</span>
+          <h3 class="font-serif text-xl font-bold text-[#14261f]">Nkuringo Sector</h3>
+          <p class="text-xs text-[#544e45] leading-relaxed">
+            Perched on a high ridge with staggering 360-degree vistas across the Kashasha river valley and the eight Virunga volcanoes. The most physically demanding yet scenic trailhead.
+          </p>
+          <div class="pt-2 text-[11px] text-[#786f61]">
+            <span class="font-semibold text-[#14261f] block">Key Lodge Partners:</span>
+            Clouds Mountain Gorilla Lodge, Nkuringo Bwindi Gorilla Lodge.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Essential Packing Checklist & Fitness Guidance -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <div class="lg:col-span-6 space-y-6 fade-in-view">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+          Field Preparation
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#14261f]">
+          Fitness, Terrain & Altitude Advisory
+        </h2>
+        <p class="text-xs sm:text-sm text-[#544e45] leading-relaxed">
+          Trekking takes place between 1,160 and 2,607 meters above sea level. There are no paved trails: rangers clear paths with machetes through thick undergrowth, tangled vines, and steep muddy inclines. Treks can range from 1.5 hours to over 6 hours depending on where the gorilla family nested the previous night.
+        </p>
+
+        <div class="space-y-4 pt-2">
+          <div class="p-4 rounded-lg bg-white border border-[#ded7c8]">
+            <h4 class="font-serif text-base font-bold text-[#14261f] mb-1">
+              Hire a Local Porter ($20 per trek)
+            </h4>
+            <p class="text-xs text-[#615a4f] leading-relaxed">
+              We strongly advise every guest to hire a local community porter at the park briefing station. Beyond carrying your daypack and camera gear, porters offer a steady hand over slippery river crossings. This is also one of the most direct ways tourism revenue reaches frontier farming families.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-lg bg-white border border-[#ded7c8]">
+            <h4 class="font-serif text-base font-bold text-[#14261f] mb-1">
+              The 'African Helicopter' Sedan Chair
+            </h4>
+            <p class="text-xs text-[#615a4f] leading-relaxed">
+              For elderly or mobility-impaired guests who dream of seeing mountain gorillas, the Uganda Wildlife Authority arranges comfortable steel-framed stretcher chairs carried by a team of 12 coordinated local porters ($350 to $500 fee). Nobody is left behind.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 bg-white p-8 rounded-xl border border-[#ded7c8] shadow-sm space-y-6 fade-in-view">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-1">
+            Checklist
+          </span>
+          <h3 class="font-serif text-2xl font-bold text-[#14261f]">
+            Essential Gorilla Trekking Gear
+          </h3>
+        </div>
+
+        <ul class="space-y-3.5 text-xs sm:text-sm text-[#4d473e]">
+          <li class="flex items-start space-x-3">
+            <span class="w-5 h-5 rounded-full bg-[#142c22] text-[#c89b53] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">1</span>
+            <span><strong>Broken-In Waterproof Hiking Boots:</strong> Essential for gripping steep muddy clay ridges and slippery tree roots.</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="w-5 h-5 rounded-full bg-[#142c22] text-[#c89b53] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">2</span>
+            <span><strong>Gardening or Sturdy Gloves:</strong> Protects your hands from stinging nettles, prickly thorns, and rough branches when pulling yourself up slopes.</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="w-5 h-5 rounded-full bg-[#142c22] text-[#c89b53] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">3</span>
+            <span><strong>Long Moisture-Wicking Pants & Gaiters:</strong> Tucking your trousers into long socks or gaiters prevents safari ants from crawling up your legs.</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="w-5 h-5 rounded-full bg-[#142c22] text-[#c89b53] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">4</span>
+            <span><strong>Lightweight Breathable Rain Jacket:</strong> Bwindi is a tropical rainforest; downpours occur suddenly regardless of season.</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="w-5 h-5 rounded-full bg-[#142c22] text-[#c89b53] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">5</span>
+            <span><strong>Medical Face Masks:</strong> Mandatory during the actual observation window to protect gorillas from human respiratory viruses.</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="w-5 h-5 rounded-full bg-[#142c22] text-[#c89b53] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">6</span>
+            <span><strong>Waterproof Camera Dry Bag:</strong> Protect your lens and sensor from moisture and sudden rainforest mist.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: Conservation Rules & Primate Health Protocols -->
+  <section class="bg-[#112d23] text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 fade-in-view">
+      <div class="max-w-2xl">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#dfb674] block mb-1">
+          Primate Health Protocol
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">
+          Conservation Etiquette in the Field
+        </h2>
+        <p class="text-xs sm:text-sm text-[#ded6c4] mt-2">
+          Mountain gorillas share over 98% of our DNA and possess zero antibodies against common human pathogens. Our field code strictly protects their fragile population.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-lg bg-[#183d30] border border-[#275d49]">
+          <h4 class="font-serif text-lg font-bold text-[#dfb674] mb-2">10-Meter Distance Rule</h4>
+          <p class="text-xs text-[#ded6c4] leading-relaxed">
+            Maintain at least 10 meters distance from gorillas at all times. If a curious youngster approaches you, stand completely calm, avoid direct eye contact, and let your ranger direct the encounter.
+          </p>
+        </div>
+        <div class="p-6 rounded-lg bg-[#183d30] border border-[#275d49]">
+          <h4 class="font-serif text-lg font-bold text-[#dfb674] mb-2">Zero Flash Photography</h4>
+          <p class="text-xs text-[#ded6c4] leading-relaxed">
+            Flash photography is strictly forbidden as it can provoke aggressive defense charges from dominant silverbacks. Check your camera shutter and disable autofocus assist lamps prior to the briefing.
+          </p>
+        </div>
+        <div class="p-6 rounded-lg bg-[#183d30] border border-[#275d49]">
+          <h4 class="font-serif text-lg font-bold text-[#dfb674] mb-2">Illness Self-Reporting</h4>
+          <p class="text-xs text-[#ded6c4] leading-relaxed">
+            Anyone exhibiting active cold, flu, cough, or diarrhea symptoms will not be permitted to track gorillas. A 50% refund or permit rescheduling is supported by UWA medical protocols.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Featured Gorilla Safaris -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-1">
+          Handcrafted Expeditions
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#14261f]">
+          Featured Mountain Gorilla Safaris
+        </h2>
+      </div>
+      <a href="/safaris" class="text-xs font-semibold uppercase tracking-wider text-[#14261f] hover:text-[#c89b53] transition-colors">
+        View All Safaris &rarr;
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {gorillaSafaris.map((safari) => (
+        <div class="fade-in-view">
+          <SafariCard safari={safari} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+</Layout>

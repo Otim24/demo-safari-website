@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SafariCard from '../../components/SafariCard.astro';
+import { safarisData } from '../../data/safaris';
+
+const categories = [
+  "All Expeditions",
+  "Primate & Gorilla",
+  "Classic Savanna",
+  "Grand Expedition",
+  "Photographic & Birding"
+];
+---
+
+<Layout
+  title="Uganda Wildlife Safaris & Gorilla Expeditions Catalog"
+  description="Explore our hand-crafted, privately guided Ugandan safaris: Bwindi gorilla habituation, Kibale chimpanzee tracking, Queen Elizabeth savanna, and remote Kidepo Valley."
+>
+
+  <!-- Header Banner -->
+  <section class="bg-[#0e231b] text-white py-20 relative overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-20">
+      <img
+        src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2000&q=80"
+        alt="African savanna landscape"
+        class="w-full h-full object-cover"
+      />
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="inline-block px-3 py-1 text-[11px] font-semibold tracking-wider uppercase bg-[#16382c] text-[#dfb674] rounded border border-[#c89b53]/30">
+        Handcrafted Itineraries
+      </div>
+      <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight">
+        Curated Wildlife Expeditions
+      </h1>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#ded6c4] font-light leading-relaxed">
+        Privately guided journeys led by career Ugandan naturalists. Every itinerary can be tailored to your exact dates, photographic focus, and luxury accommodation preferences.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Catalog Section with Interactive Filter Tabs -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Filter Navigation Chips -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+      {categories.map((cat, idx) => (
+        <button
+          type="button"
+          data-category-btn={cat}
+          class={`filter-tab px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded border transition-all duration-200 ${
+            idx === 0
+              ? 'active-tab bg-[#142c22] text-[#e8c999] border-[#142c22]'
+              : 'bg-white text-[#544e45] border-[#dcd6c8] hover:border-[#c89b53] hover:text-[#142c22]'
+          }`}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <!-- Safari Grid -->
+    <div id="safari-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {safarisData.map((safari) => (
+        <div class="safari-item-wrapper fade-in-view" data-category={safari.category}>
+          <SafariCard safari={safari} />
+        </div>
+      ))}
+    </div>
+
+    <!-- Custom Safari Consultation Card -->
+    <div class="mt-16 bg-[#f3efe6] rounded-xl border border-[#ded7c8] p-8 md:p-12 text-center space-y-4 fade-in-view">
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53]">
+        Bespoke Tailoring
+      </span>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#14261f]">
+        Looking for a Fully Custom Ugandan Itinerary?
+      </h2>
+      <p class="max-w-2xl mx-auto text-xs sm:text-sm text-[#544e45] leading-relaxed">
+        Whether you require private bush flights to bypass long road drives, specific photography hides for rare birding endemics, or multi-generational family suites, our operations team in Kampala can construct your exact journey from scratch.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/contact"
+          class="px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#0e231b] bg-[#c89b53] hover:bg-[#d8af6e] rounded transition-colors shadow-sm"
+        >
+          Request Tailored Safari Consultation
+        </a>
+        <a
+          href="https://wa.me/256784811929"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#14261f] bg-white border border-[#dcd6c8] hover:border-[#c89b53] rounded transition-colors"
+        >
+          Quick Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+</Layout>
+
+<script>
+  function setupSafariFilter() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-category-btn]');
+    const cards = document.querySelectorAll<HTMLElement>('.safari-item-wrapper');
+
+    if (!buttons.length || !cards.length) return;
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetCategory = btn.getAttribute('data-category-btn') || 'All Expeditions';
+
+        // Update button styles
+        buttons.forEach((b) => {
+          b.classList.remove('active-tab', 'bg-[#142c22]', 'text-[#e8c999]', 'border-[#142c22]');
+          b.classList.add('bg-white', 'text-[#544e45]', 'border-[#dcd6c8]');
+        });
+
+        btn.classList.add('active-tab', 'bg-[#142c22]', 'text-[#e8c999]', 'border-[#142c22]');
+        btn.classList.remove('bg-white', 'text-[#544e45]', 'border-[#dcd6c8]');
+
+        // Filter cards with smooth fade
+        cards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-category');
+          if (targetCategory === 'All Expeditions' || cardCategory === targetCategory) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.classList.add('is-visible');
+            }, 50);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  setupSafariFilter();
+  document.addEventListener('astro:page-load', setupSafariFilter);
+</script>
+

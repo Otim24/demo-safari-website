@@ -1,0 +1,376 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { companyData } from '../data/company';
+
+const faqs = [
+  {
+    q: "How far in advance must I secure my Uganda gorilla tracking permit?",
+    a: "We strongly advise reserving your mountain gorilla permits at least 4 to 8 months in advance, particularly for travel during peak dry periods (June to September and December to February). The Uganda Wildlife Authority limits permits strictly to 8 visitors per habituated gorilla family per day to preserve their health and habitat."
+  },
+  {
+    q: "What is the official minimum age for tracking gorillas in Uganda?",
+    a: "The legal minimum age established by the Uganda Wildlife Authority is 15 years old on the date of tracking. A valid passport copy is submitted to UWA headquarters during the permit verification and issuance process."
+  },
+  {
+    q: "Are domestic bush flights available between parks?",
+    a: "Yes. For travelers wishing to reduce overland driving times, daily scheduled light aircraft flights operate from Entebbe International Airport directly to airstrips in Kihihi and Kisoro (for Bwindi), Kasese and Mweya (for Queen Elizabeth), Pakuba and Bugungu (for Murchison Falls), and Apoka (for Kidepo Valley)."
+  },
+  {
+    q: "What health and vaccination documentation is required to enter Uganda?",
+    a: "A valid Yellow Fever vaccination certificate is mandatory for all international arrivals entering Entebbe International Airport. Routine travel immunizations including Hepatitis A, Tetanus, and Typhoid are recommended, along with physician-prescribed malaria prophylaxis such as Atovaquone-Proguanil or Doxycycline."
+  },
+  {
+    q: "How does payment and permit security work?",
+    a: "Upon confirming your itinerary, a deposit covering the full statutory cost of your UWA gorilla and chimpanzee permits is required to lock in the official receipt and registration with the park authority. The remaining safari balance is settled 45 days prior to your arrival via bank wire transfer or secure online credit card portal."
+  }
+];
+---
+
+<Layout
+  title="Plan Your Bespoke Safari & Contact Concierge"
+  description="Contact Demo Safaris Uganda in Kampala and Entebbe. Inquire for official Uganda Wildlife Authority permits, private 4x4 Land Cruisers, and customized itineraries."
+>
+
+  <!-- Hero Header -->
+  <section class="bg-[#0e231b] text-white py-20 relative overflow-hidden">
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="inline-block px-3 py-1 text-[11px] font-semibold tracking-wider uppercase bg-[#16382c] text-[#dfb674] rounded border border-[#c89b53]/30">
+        Direct Outfitter Desk
+      </div>
+      <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight">
+        Plan Your Bespoke Ugandan Safari
+      </h1>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#ded6c4] font-light leading-relaxed">
+        Speak directly with our senior naturalist team in Kampala. We secure your official UWA permits, tailor luxury eco-lodges, and coordinate private 4x4 overland transfers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Section: Form & Contacts -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Left Column: The Interactive Inquiry Form -->
+      <div class="lg:col-span-7 bg-white rounded-xl border border-[#ded7c8] p-8 shadow-sm space-y-8 fade-in-view">
+        <div class="border-b border-[#f0ede6] pb-4">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-1">
+            Custom Itinerary Builder
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#14261f]">
+            Expedition Consultation Request
+          </h2>
+          <p class="text-xs text-[#615a4f] mt-1">
+            Fill in your preferred travel parameters. A senior naturalist will respond with a tailored day-by-day proposal within 24 hours.
+          </p>
+        </div>
+
+        <form class="space-y-6" id="bespoke-inquiry-form">
+          
+          <!-- Contact Details Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-1">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                required
+                placeholder="e.g. Dr. Arthur Conan"
+                class="w-full text-xs text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-1">
+                Email Address *
+              </label>
+              <input
+                type="email"
+                required
+                placeholder="arthur@example.com"
+                class="w-full text-xs text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-1">
+                Phone or WhatsApp Number
+              </label>
+              <input
+                type="tel"
+                placeholder="+1 415 555 2671"
+                class="w-full text-xs text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-1">
+                Country of Residence
+              </label>
+              <input
+                type="text"
+                placeholder="United States, UK, Germany..."
+                class="w-full text-xs text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]"
+              />
+            </div>
+          </div>
+
+          <!-- Trip Dates & Duration -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-1">
+                Target Travel Month
+              </label>
+              <select class="w-full text-xs text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]">
+                <option>June to August 2026</option>
+                <option>September to November 2026</option>
+                <option>December 2026 to February 2027</option>
+                <option>March to May 2027</option>
+                <option>Flexible / Exploring Dates</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-1">
+                Number of Travelers
+              </label>
+              <select class="w-full text-xs text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]">
+                <option>2 Travelers (Couple / Pair)</option>
+                <option>1 Solo Traveler</option>
+                <option>3 to 4 Travelers</option>
+                <option>5 to 8 (Private Family Group)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-1">
+                Expected Duration
+              </label>
+              <select class="w-full text-xs text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]">
+                <option>8 to 10 Days (Recommended)</option>
+                <option>6 to 7 Days (Focused Primate)</option>
+                <option>11 to 14 Days (Grand Circuit)</option>
+                <option>Custom Length</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Desired Experiences Checkboxes -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-2">
+              Primary Wildlife & Habitat Interests (Select All Applicable)
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#453f35]">
+              <label class="flex items-center space-x-2 bg-[#f9f7f3] p-2.5 rounded border border-[#e5dfd2] cursor-pointer hover:border-[#c89b53]">
+                <input type="checkbox" checked class="rounded text-[#c89b53] focus:ring-0" />
+                <span>Mountain Gorilla Habituation (4 Hours)</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-[#f9f7f3] p-2.5 rounded border border-[#e5dfd2] cursor-pointer hover:border-[#c89b53]">
+                <input type="checkbox" class="rounded text-[#c89b53] focus:ring-0" />
+                <span>Standard Gorilla Tracking (1 Hour)</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-[#f9f7f3] p-2.5 rounded border border-[#e5dfd2] cursor-pointer hover:border-[#c89b53]">
+                <input type="checkbox" checked class="rounded text-[#c89b53] focus:ring-0" />
+                <span>Kibale Chimpanzee Tracking</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-[#f9f7f3] p-2.5 rounded border border-[#e5dfd2] cursor-pointer hover:border-[#c89b53]">
+                <input type="checkbox" checked class="rounded text-[#c89b53] focus:ring-0" />
+                <span>Ishasha Tree-Climbing Lions</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-[#f9f7f3] p-2.5 rounded border border-[#e5dfd2] cursor-pointer hover:border-[#c89b53]">
+                <input type="checkbox" class="rounded text-[#c89b53] focus:ring-0" />
+                <span>Murchison Falls River Cruise</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-[#f9f7f3] p-2.5 rounded border border-[#e5dfd2] cursor-pointer hover:border-[#c89b53]">
+                <input type="checkbox" class="rounded text-[#c89b53] focus:ring-0" />
+                <span>Remote Kidepo Valley Wilderness</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-[#f9f7f3] p-2.5 rounded border border-[#e5dfd2] cursor-pointer hover:border-[#c89b53]">
+                <input type="checkbox" class="rounded text-[#c89b53] focus:ring-0" />
+                <span>Albertine Rift Birding & Shoebill</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-[#f9f7f3] p-2.5 rounded border border-[#e5dfd2] cursor-pointer hover:border-[#c89b53]">
+                <input type="checkbox" class="rounded text-[#c89b53] focus:ring-0" />
+                <span>Domestic Bush Flights (Avoid Long Drives)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Accommodation Tier -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-2">
+              Preferred Lodge Comfort Tier
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <label class="flex flex-col p-3 rounded border border-[#dcd6c8] bg-[#f9f7f3] cursor-pointer hover:border-[#c89b53]">
+                <input type="radio" name="lodge-tier" checked class="text-[#c89b53] focus:ring-0 mb-1" />
+                <span class="font-bold text-[#14261f]">Ultra-Luxury</span>
+                <span class="text-[11px] text-[#736a5c]">e.g. Clouds, Bwindi Lodge, Ndali Crater</span>
+              </label>
+              <label class="flex flex-col p-3 rounded border border-[#dcd6c8] bg-[#f9f7f3] cursor-pointer hover:border-[#c89b53]">
+                <input type="radio" name="lodge-tier" class="text-[#c89b53] focus:ring-0 mb-1" />
+                <span class="font-bold text-[#14261f]">Boutique Tented</span>
+                <span class="text-[11px] text-[#736a5c]">e.g. Ishasha Wilderness, Elephant Plains</span>
+              </label>
+              <label class="flex flex-col p-3 rounded border border-[#dcd6c8] bg-[#f9f7f3] cursor-pointer hover:border-[#c89b53]">
+                <input type="radio" name="lodge-tier" class="text-[#c89b53] focus:ring-0 mb-1" />
+                <span class="font-bold text-[#14261f]">Classic Safari</span>
+                <span class="text-[11px] text-[#736a5c]">Comfortable eco-lodges with ensuite baths</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-[#544e45] mb-1">
+              Specific Requests or Dietary Requirements
+            </label>
+            <textarea
+              rows="4"
+              placeholder="Tell us about your photographic goals, mobility considerations, flight arrival times, or any specific wildlife targets..."
+              class="w-full text-xs text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-4 px-6 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#0e231b] bg-[#c89b53] hover:bg-[#d8af6e] rounded text-center transition-colors shadow-md"
+          >
+            Submit Custom Itinerary Request
+          </button>
+        </form>
+
+        <div id="form-success-banner" class="hidden p-4 rounded bg-[#e8f5e9] border border-[#a5d6a7] text-xs text-[#1b5e20] leading-relaxed">
+          Thank you. Your inquiry has been delivered directly to our senior naturalist operations desk in Kampala. We will review UWA permit availability and formulate your comprehensive proposal within 24 hours.
+        </div>
+      </div>
+
+      <!-- Right Column: Direct Office Details & Operations Desk -->
+      <div class="lg:col-span-5 space-y-8 fade-in-view fade-in-delay-1">
+        
+        <!-- Office Location Card -->
+        <div class="bg-white rounded-xl border border-[#ded7c8] p-6 shadow-sm space-y-5">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Operations Desks
+          </span>
+          <h3 class="font-serif text-2xl font-bold text-[#14261f]">
+            Direct Guild Contacts
+          </h3>
+
+          <div class="space-y-4 text-xs text-[#544e45]">
+            <div class="border-b border-[#f0ede6] pb-3">
+              <span class="font-bold text-[#14261f] block text-sm">Kampala Headquarters:</span>
+              <p class="mt-0.5">{companyData.headquarters}</p>
+              <p class="text-[11px] text-[#8a7f6f] mt-0.5">Central safari administration and UWA permit verification.</p>
+            </div>
+
+            <div class="border-b border-[#f0ede6] pb-3">
+              <span class="font-bold text-[#14261f] block text-sm">Entebbe Airport Dispatch:</span>
+              <p class="mt-0.5">{companyData.entebbeDispatch}</p>
+              <p class="text-[11px] text-[#8a7f6f] mt-0.5">Guest meet-and-greet lounge and vehicle staging base.</p>
+            </div>
+
+            <div class="border-b border-[#f0ede6] pb-3">
+              <span class="font-bold text-[#14261f] block text-sm">Direct Telephone Desk:</span>
+              <a href={`tel:${companyData.phoneMain}`} class="text-[#c89b53] font-semibold text-sm hover:underline block mt-0.5">
+                {companyData.phoneMain}
+              </a>
+              <span class="text-[11px] text-[#8a7f6f] block mt-0.5">Operating {companyData.officeHours}</span>
+            </div>
+
+            <div>
+              <span class="font-bold text-[#14261f] block text-sm">WhatsApp Concierge Desk:</span>
+              <a href="https://wa.me/256784811929" target="_blank" rel="noopener noreferrer" class="text-[#c89b53] font-semibold text-sm hover:underline block mt-0.5">
+                +256 784 811 929
+              </a>
+              <span class="text-[11px] text-[#8a7f6f] block mt-0.5">Instant response for permit status and urgent logistics.</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-[#f0ede6]">
+            <a
+              href="https://wa.me/256784811929"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center space-x-2 py-3 px-4 bg-[#142c22] hover:bg-[#1b3d30] text-white rounded text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              <svg class="w-4 h-4 text-[#c89b53]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.245-.038.384.296.144.346.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.178.21-.077.383.101.173.45 1.488 1.433 2.364.382.34.704.457.946.554.218.087.378.077.518-.087.144-.173.607-.707.768-.953.159-.246.318-.202.534-.116.217.087 1.373.647 1.609.764.236.116.393.173.45.275.058.101.058.592-.086.997z"/>
+              </svg>
+              <span>Chat with Lead Naturalist on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Trust Badges Summary -->
+        <div class="bg-[#f3efe6] rounded-xl border border-[#ded7c8] p-6 space-y-3 text-xs text-[#544e45]">
+          <h4 class="font-serif text-lg font-bold text-[#14261f]">
+            The Demo Safaris Showcase Standard
+          </h4>
+          <p class="leading-relaxed">
+            Every itinerary concept models direct UWA permit reservation, full liability insurance, and comprehensive AMREF Flying Doctors aero-medical air evacuation.
+          </p>
+          <div class="pt-2 text-[11px] text-[#736a5c] space-y-1">
+            <p>• Portfolio Showcase Reference: DEMO-UTB-2026</p>
+            <p>• Concept Model: Uganda Tour Operators Best Practice</p>
+            <p>• Direct Contact: +256 784 811 929</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Frequently Asked Questions Accordion -->
+  <section class="py-16 bg-[#f3efe6] border-t border-[#ded7c8]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 fade-in-view">
+      
+      <div class="text-center space-y-2">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53]">
+          Pre-Expedition Intelligence
+        </span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#14261f]">
+          Uganda Travel & Planning FAQ
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq, idx) => (
+          <details class="group bg-white rounded-lg border border-[#ded7c8] p-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all">
+            <summary class="flex items-center justify-between text-sm sm:text-base font-serif font-bold text-[#14261f] group-open:text-[#c89b53]">
+              <span>{faq.q}</span>
+              <span class="ml-4 shrink-0 transition duration-300 group-open:-rotate-180 text-[#c89b53]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-[#544e45] leading-relaxed pt-2 border-t border-[#f0ede6]">
+              {faq.a}
+            </p>
+          </details>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  function setupContactForm() {
+    const form = document.getElementById('bespoke-inquiry-form');
+    const banner = document.getElementById('form-success-banner');
+    if (!form || !banner) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.classList.add('opacity-50', 'pointer-events-none');
+      banner.classList.remove('hidden');
+      banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
+  setupContactForm();
+  document.addEventListener('astro:page-load', setupContactForm);
+</script>
+

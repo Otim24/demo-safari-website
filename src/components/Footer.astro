@@ -1,0 +1,196 @@
+---
+import { companyData } from '../data/company';
+---
+
+<footer class="bg-[#081510] text-[#c7beaa] border-t border-[#18362a] pt-16 pb-24 md:pb-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#18362a]">
+      
+      <!-- Brand & Accreditation Col -->
+      <div class="lg:col-span-2 space-y-5">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-sm bg-[#132c21] border border-[#c89b53]/40 flex items-center justify-center p-2">
+            <svg class="w-6 h-6 text-[#c89b53]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v18m0-18l-8 8m8-8l8 8M4 11l8 8 8-8" />
+              <circle cx="12" cy="12" r="3" stroke-width="1.5" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-serif text-lg font-bold tracking-wider text-white uppercase block">
+                Demo Safaris
+              </span>
+              <span class="text-[9px] uppercase tracking-widest bg-[#c89b53]/30 text-[#dfb674] px-1.5 py-0.2 rounded font-semibold border border-[#c89b53]/40">
+                Showcase
+              </span>
+            </div>
+            <span class="text-[10px] tracking-[0.2em] text-[#c89b53] uppercase block font-medium">
+              Wildlife Expeditions Uganda
+            </span>
+          </div>
+        </div>
+
+        <p class="text-xs text-[#a99e89] leading-relaxed max-w-sm">
+          A dedicated wildlife touring concept and portfolio showcase for Ugandan primate expeditions, mountain gorilla habituation, and savanna safaris across the Albertine Rift.
+        </p>
+
+        <div class="p-3 rounded bg-[#132c21]/60 border border-[#234d3d] text-xs text-[#d6cdb7] space-y-1">
+          <span class="text-[#dfb674] font-semibold block text-[11px] uppercase tracking-wider">Showcase Notice:</span>
+          <p class="text-[11px] text-[#b8ad96] leading-relaxed">
+            This platform is a demonstration website created for presentation and portfolio purposes, not an active commercial touring company.
+          </p>
+        </div>
+
+        <div class="space-y-2 pt-2 text-xs text-[#d6cdb7]">
+          <div class="flex items-start space-x-2">
+            <svg class="w-4 h-4 text-[#c89b53] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span>Licensed Uganda Tourism Board Outfitter: UTB/L-TO/2018/00482</span>
+          </div>
+          <div class="flex items-start space-x-2">
+            <svg class="w-4 h-4 text-[#c89b53] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span>Association of Uganda Tour Operators: Full Member No. 418</span>
+          </div>
+          <div class="flex items-start space-x-2">
+            <svg class="w-4 h-4 text-[#c89b53] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span>Direct Partner of Uganda Wildlife Authority (UWA)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expeditions Links -->
+      <div class="space-y-4">
+        <h4 class="font-serif text-sm tracking-wider text-white uppercase border-b border-[#18362a] pb-2">
+          Featured Safaris
+        </h4>
+        <ul class="space-y-2.5 text-xs text-[#a99e89]">
+          <li>
+            <a href="/safaris/great-albertine-rift-primate-expedition" class="hover:text-[#c89b53] transition-colors">
+              Albertine Rift & Habituation (10 Days)
+            </a>
+          </li>
+          <li>
+            <a href="/safaris/classic-uganda-big-game-gorilla-circuit" class="hover:text-[#c89b53] transition-colors">
+              Classic Big Game Circuit (8 Days)
+            </a>
+          </li>
+          <li>
+            <a href="/safaris/kidepo-valley-murchison-remote-wilderness" class="hover:text-[#c89b53] transition-colors">
+              Kidepo & Murchison Frontier (8 Days)
+            </a>
+          </li>
+          <li>
+            <a href="/safaris/primates-of-the-pearl-chimpanzees-gorillas-golden-monkeys" class="hover:text-[#c89b53] transition-colors">
+              Primates of the Pearl (7 Days)
+            </a>
+          </li>
+          <li>
+            <a href="/safaris/uganda-birding-endemics-shoebill-quest" class="hover:text-[#c89b53] transition-colors">
+              Albertine Rift Birding Quest (12 Days)
+            </a>
+          </li>
+          <li>
+            <a href="/safaris" class="text-[#c89b53] hover:underline font-medium pt-1 inline-block">
+              View All 6 Expeditions &rarr;
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Wildlife Sanctuaries -->
+      <div class="space-y-4">
+        <h4 class="font-serif text-sm tracking-wider text-white uppercase border-b border-[#18362a] pb-2">
+          National Parks
+        </h4>
+        <ul class="space-y-2.5 text-xs text-[#a99e89]">
+          <li>
+            <a href="/destinations#bwindi" class="hover:text-[#c89b53] transition-colors">
+              Bwindi Impenetrable Forest
+            </a>
+          </li>
+          <li>
+            <a href="/destinations#queen-elizabeth" class="hover:text-[#c89b53] transition-colors">
+              Queen Elizabeth & Ishasha
+            </a>
+          </li>
+          <li>
+            <a href="/destinations#kibale" class="hover:text-[#c89b53] transition-colors">
+              Kibale Forest Primate Capital
+            </a>
+          </li>
+          <li>
+            <a href="/destinations#murchison-falls" class="hover:text-[#c89b53] transition-colors">
+              Murchison Falls & Nile Delta
+            </a>
+          </li>
+          <li>
+            <a href="/destinations#kidepo-valley" class="hover:text-[#c89b53] transition-colors">
+              Kidepo Valley Wilderness
+            </a>
+          </li>
+          <li>
+            <a href="/destinations#lake-mburo" class="hover:text-[#c89b53] transition-colors">
+              Lake Mburo Acacia Sanctuary
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Guild & Operations Contact -->
+      <div class="space-y-4">
+        <h4 class="font-serif text-sm tracking-wider text-white uppercase border-b border-[#18362a] pb-2">
+          Contact Concierge
+        </h4>
+        <div class="space-y-3 text-xs text-[#a99e89]">
+          <div>
+            <span class="text-white block font-medium">Kampala Head Office:</span>
+            <span>Plot 14, Kyaggwe Road, Nakasero, Kampala</span>
+          </div>
+          <div>
+            <span class="text-white block font-medium">Entebbe Dispatch Hub:</span>
+            <span>Suite 4, Victoria Heights Plaza, Airport Road</span>
+          </div>
+          <div>
+            <span class="text-white block font-medium">Expedition & Demo Desk:</span>
+            <a href="tel:+256784811929" class="text-[#c89b53] hover:underline block">
+              +256 784 811 929
+            </a>
+            <a href="https://wa.me/256784811929" target="_blank" rel="noopener noreferrer" class="text-[#c89b53] hover:underline block">
+              WhatsApp: +256 784 811 929
+            </a>
+          </div>
+          <div>
+            <span class="text-white block font-medium">Inquiries Email:</span>
+            <a href="mailto:info@demosafarisuganda.com" class="text-[#c89b53] hover:underline">
+              info@demosafarisuganda.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Conservation Pledge & Copyright Row -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#8f8573] space-y-4 md:space-y-0">
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <span>© 2026 Demo Safaris Uganda. Demonstration portfolio showcase. Not an official commercial entity.</span>
+        <span>Every safari itinerary concept models UWA community wildlife standards.</span>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="/gorilla-trekking" class="hover:text-[#c89b53] transition-colors">Permit Advisory</a>
+        <a href="/conservation" class="hover:text-[#c89b53] transition-colors">Conservation Charter</a>
+        <a href="/about" class="hover:text-[#c89b53] transition-colors">Our Fleet & Guides</a>
+        <a href="/contact" class="hover:text-[#c89b53] transition-colors">Inquire</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+

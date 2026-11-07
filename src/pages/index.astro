@@ -1,0 +1,453 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SafariCard from '../components/SafariCard.astro';
+import DestinationCard from '../components/DestinationCard.astro';
+import { safarisData } from '../data/safaris';
+import { destinationsData } from '../data/destinations';
+import { trustHighlights } from '../data/company';
+
+const featuredSafaris = safarisData.slice(0, 3);
+const featuredDestinations = destinationsData.slice(0, 3);
+---
+
+<Layout
+  title="Bespoke Uganda Safaris & Mountain Gorilla Expeditions"
+  description="Licensed Ugandan safari outfitter specializing in private mountain gorilla habituation, chimpanzee tracking, tree-climbing lions, and custom 4x4 overland expeditions across the Albertine Rift."
+>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center justify-center bg-[#091711] overflow-hidden">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=2000&q=85"
+        alt="Mountain Gorilla in the lush mist of Bwindi Impenetrable National Park"
+        class="w-full h-full object-cover object-center brightness-[0.62] scale-105 animate-[pulse_10s_ease-in-out_infinite]"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0e231b] via-[#091711]/50 to-black/60"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center text-white space-y-6">
+
+      <!-- Main Headline -->
+      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#faf8f5] leading-[1.1] fade-in-view">
+        Uganda in Its Purest, <br class="hidden sm:block" />
+        <span class="italic text-[#dfb674] font-normal">Most Intimate</span> Wilderness.
+      </h1>
+
+      <!-- Editorial Subtitle -->
+      <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-[#ded6c4] font-light leading-relaxed fade-in-view fade-in-delay-2">
+        Bespoke overland journeys, official mountain gorilla habituation in Bwindi, and private predator expeditions led by senior career naturalists.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 fade-in-view fade-in-delay-3">
+        <a
+          href="/safaris"
+          class="w-full sm:w-auto px-8 py-4 text-xs sm:text-sm font-semibold tracking-wider text-[#0e231b] uppercase bg-[#c89b53] hover:bg-[#d8af6e] rounded shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+        >
+          Explore Curated Expeditions
+        </a>
+        <a
+          href="/contact"
+          class="w-full sm:w-auto px-8 py-4 text-xs sm:text-sm font-semibold tracking-wider text-[#faf8f5] uppercase bg-[#143327]/80 hover:bg-[#1a4434] border border-[#c89b53]/40 rounded backdrop-blur-sm transition-all duration-300"
+        >
+          Design Bespoke Journey
+        </a>
+      </div>
+
+      <!-- Quick Trust Ledger -->
+      <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto border-t border-[#294c3d]/60 text-left fade-in-view">
+        <div class="p-3">
+          <span class="block font-serif text-xl sm:text-2xl font-bold text-[#dfb674]">100%</span>
+          <span class="text-[11px] text-[#c2b9a7] uppercase tracking-wider">UWA Permit Allocation</span>
+        </div>
+        <div class="p-3">
+          <span class="block font-serif text-xl sm:text-2xl font-bold text-[#dfb674]">14+ Years</span>
+          <span class="text-[11px] text-[#c2b9a7] uppercase tracking-wider">Senior Field Leadership</span>
+        </div>
+        <div class="p-3">
+          <span class="block font-serif text-xl sm:text-2xl font-bold text-[#dfb674]">AMREF</span>
+          <span class="text-[11px] text-[#c2b9a7] uppercase tracking-wider">Air Evacuation Included</span>
+        </div>
+        <div class="p-3">
+          <span class="block font-serif text-xl sm:text-2xl font-bold text-[#dfb674]">4x4 Fleet</span>
+          <span class="text-[11px] text-[#c2b9a7] uppercase tracking-wider">Custom Pop-Up Cruisers</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quick Safari Search & Filter Bar -->
+  <section class="relative z-20 -mt-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-lg shadow-xl border border-[#e5dfd2] p-5 sm:p-6 fade-in-view">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+        
+        <div>
+          <label for="filter-experience" class="block text-[11px] font-bold uppercase tracking-wider text-[#696154] mb-1">
+            Wildlife Experience
+          </label>
+          <select id="filter-experience" class="w-full text-xs font-medium text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]">
+            <option value="all">All Experiences</option>
+            <option value="primate">Mountain Gorilla Habituation</option>
+            <option value="classic">Classic Savanna & Big Cats</option>
+            <option value="remote">Remote Northern Frontier (Kidepo)</option>
+            <option value="birding">Albertine Rift Birding & Shoebill</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="filter-duration" class="block text-[11px] font-bold uppercase tracking-wider text-[#696154] mb-1">
+            Duration
+          </label>
+          <select id="filter-duration" class="w-full text-xs font-medium text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]">
+            <option value="all">Any Duration</option>
+            <option value="short">6 to 7 Days (Focused)</option>
+            <option value="medium">8 to 10 Days (Comprehensive)</option>
+            <option value="long">11 to 14 Days (Grand Circuit)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="filter-traveler" class="block text-[11px] font-bold uppercase tracking-wider text-[#696154] mb-1">
+            Travel Style
+          </label>
+          <select id="filter-traveler" class="w-full text-xs font-medium text-[#1b1917] bg-[#f9f7f3] border border-[#dcd6c8] rounded px-3 py-2.5 focus:outline-none focus:border-[#c89b53]">
+            <option value="private">Private Custom Expedition</option>
+            <option value="honeymoon">Bespoke Honeymoon Safari</option>
+            <option value="photographic">Specialized Photographic Hide</option>
+            <option value="small-guild">Small Guild Group (Max 6)</option>
+          </select>
+        </div>
+
+        <div class="pt-2 sm:pt-4">
+          <a
+            href="/safaris"
+            class="w-full inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold tracking-wider text-white uppercase bg-[#142c22] hover:bg-[#c89b53] hover:text-[#0e231b] rounded transition-all duration-300"
+          >
+            <span>View All Safaris</span>
+            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Curated Signature Expeditions -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 fade-in-view">
+      <div class="max-w-2xl">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-2">
+          Handcrafted Journeys
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#14261f] leading-tight">
+          Signature Uganda Expeditions
+        </h2>
+        <p class="mt-3 text-sm sm:text-base text-[#615a4f] leading-relaxed">
+          Each itinerary is privately guided, fully customized to your schedule, and conducted in modified 4x4 Land Cruisers with guaranteed window seating and pop-up photographic hatches.
+        </p>
+      </div>
+
+      <div class="mt-4 md:mt-0">
+        <a
+          href="/safaris"
+          class="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-[#14261f] hover:text-[#c89b53] transition-colors border-b-2 border-[#14261f] hover:border-[#c89b53] pb-1"
+        >
+          <span>View All 6 Expeditions</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Safari Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {featuredSafaris.map((safari) => (
+        <div class="fade-in-view">
+          <SafariCard safari={safari} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Section 2: Mountain Gorilla Authority Highlight -->
+  <section class="bg-[#10271e] text-white py-20 relative overflow-hidden">
+    <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-[#183c2e] opacity-40 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Text Column -->
+        <div class="lg:col-span-7 space-y-6 fade-in-view">
+          <div class="inline-block px-3 py-1 text-[11px] font-semibold tracking-wider uppercase bg-[#183c2e] text-[#dfb674] rounded border border-[#c89b53]/30">
+            Conservation & Primates
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            The Mountain Gorilla <br />
+            <span class="text-[#dfb674] italic font-normal">Habituation Experience</span>
+          </h2>
+
+          <p class="text-sm sm:text-base text-[#d1c8b4] leading-relaxed">
+            While standard tracking grants one hour with a fully habituated gorilla family, our guild offers specialized access to the rare Uganda Wildlife Authority Four-Hour Habituation Experience in southern Bwindi. Accompany researchers, veterinary naturalists, and veteran rangers as you spend four uninterrupted hours immersed in their deep rainforest sanctuary.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded bg-[#16362a] border border-[#234d3d]">
+              <span class="font-serif text-lg font-bold text-[#dfb674] block">4 Immersive Hours</span>
+              <span class="text-xs text-[#bcb29f] block mt-1">Four times the standard observation duration in the company of primate researchers.</span>
+            </div>
+            <div class="p-4 rounded bg-[#16362a] border border-[#234d3d]">
+              <span class="font-serif text-lg font-bold text-[#dfb674]">Strict Group Cap: 4 Guests</span>
+              <span class="text-xs text-[#bcb29f] block mt-1">Maximum 4 visitors per semi-habituated family to preserve wild behavioral integrity.</span>
+            </div>
+          </div>
+
+          <div class="pt-4 flex flex-wrap gap-4">
+            <a
+              href="/gorilla-trekking"
+              class="px-6 py-3 text-xs font-semibold tracking-wider text-[#0e231b] uppercase bg-[#c89b53] hover:bg-[#d8af6e] rounded transition-colors"
+            >
+              Read Complete Gorilla Trekking Guide
+            </a>
+            <a
+              href="/contact"
+              class="px-6 py-3 text-xs font-semibold tracking-wider text-white uppercase bg-[#1c4435] hover:bg-[#255b47] rounded border border-[#c89b53]/40 transition-colors"
+            >
+              Check Permit Availability
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Visual Column -->
+        <div class="lg:col-span-5 fade-in-view fade-in-delay-1">
+          <div class="relative rounded-lg overflow-hidden border border-[#2b5946] shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=1200&q=80"
+              alt="Primate in natural rainforest canopy"
+              class="w-full h-full object-cover brightness-95"
+            />
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 text-white">
+              <span class="text-[11px] uppercase tracking-wider text-[#dfb674] font-semibold block">Rushaga & Nkuringo Sectors</span>
+              <p class="text-xs text-[#ded6c4] mt-1">Bwindi Impenetrable National Park, elevation 2,100 meters above sea level.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: National Parks Directory Preview -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 fade-in-view">
+      <div class="max-w-2xl">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-2">
+          Protected Wildernesses
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#14261f] leading-tight">
+          Uganda's Premier Ecosystems
+        </h2>
+        <p class="mt-3 text-sm sm:text-base text-[#615a4f] leading-relaxed">
+          From the ancient Pleistocene rain forests of the Albertine Rift to the semi-arid northern savannas of Kidepo, Uganda holds Africa's most compressed biodiversity.
+        </p>
+      </div>
+
+      <div class="mt-4 md:mt-0">
+        <a
+          href="/destinations"
+          class="inline-flex items-center space-x-1.5 text-xs font-semibold uppercase tracking-wider text-[#14261f] hover:text-[#c89b53] transition-colors border-b-2 border-[#14261f] hover:border-[#c89b53] pb-1"
+        >
+          <span>Explore All 6 Reserves</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {featuredDestinations.map((dest, idx) => (
+        <div class="fade-in-view">
+          <DestinationCard destination={dest} index={idx + 1} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Section 4: The Expedition Standard (Fleet, Guides, AMREF) -->
+  <section class="bg-[#f3efe6] py-20 border-y border-[#e5dfd2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 fade-in-view">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-2">
+          The Private Standard
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#14261f]">
+          Engineered for Wilderness
+        </h2>
+        <p class="mt-3 text-sm sm:text-base text-[#615a4f]">
+          We believe true safari luxury is the freedom of private departures, unhurried time at sightings, and deep naturalist insight.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {trustHighlights.map((highlight, index) => (
+          <div class="bg-white p-6 rounded-lg border border-[#e5dfd2] shadow-sm hover:border-[#c89b53]/50 transition-all duration-300 fade-in-view">
+            <div class="w-10 h-10 rounded bg-[#0e231b] text-[#c89b53] flex items-center justify-center mb-4">
+              <span class="font-serif font-bold text-base">0{index + 1}</span>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-[#14261f] mb-2">
+              {highlight.title}
+            </h3>
+            <p class="text-xs sm:text-sm text-[#615a4f] leading-relaxed">
+              {highlight.description}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Photographic Fleet Banner -->
+      <div class="mt-12 bg-[#0e231b] rounded-lg overflow-hidden border border-[#234d3d] shadow-lg text-white p-8 md:p-12 fade-in-view">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <span class="text-xs font-semibold uppercase tracking-wider text-[#dfb674]">
+              Custom Built Safari Cruisers
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-snug">
+              Every Passenger Has a Window Seat & Pop-Up Camera Hatch
+            </h3>
+            <p class="text-xs sm:text-sm text-[#ded6c4] leading-relaxed">
+              Our extended Toyota Land Cruisers feature custom suspension, heavy duty inverter power strips for battery recharging on the go, onboard refrigerated cooler boxes, Swarovski Optik binoculars, and full VHF communications.
+            </p>
+          </div>
+          <div class="lg:col-span-4 flex lg:justify-end">
+            <a
+              href="/about"
+              class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-[#0e231b] bg-[#c89b53] hover:bg-[#d8af6e] rounded transition-colors"
+            >
+              Learn About Our Fleet
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 5: Guest Testimonials & Field Notes -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-in-view">
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-2">
+        Guest Reflections
+      </span>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#14261f]">
+        Field Accolades
+      </h2>
+      <p class="mt-3 text-sm text-[#615a4f]">
+        Honored reviews from conservation donors, wildlife photographers, and multi-generational families.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <div class="bg-white p-8 rounded-lg border border-[#e5dfd2] shadow-sm flex flex-col justify-between space-y-6 fade-in-view">
+        <div class="space-y-4">
+          <div class="text-[#c89b53]">
+            <svg class="w-8 h-8 opacity-40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
+          <p class="text-xs sm:text-sm text-[#4d473e] italic leading-relaxed">
+            "The four-hour gorilla habituation in Rushaga surpassed every expectation. Our lead guide Fred possessed an encyclopedic understanding of primate vocalizations and forest botany. Having a private Land Cruiser made every sunrise photographic stop completely effortless."
+          </p>
+        </div>
+        <div class="border-t border-[#f0ede6] pt-4">
+          <span class="font-serif font-bold text-[#14261f] block text-sm">Dr. Alistair & Elena Vance</span>
+          <span class="text-xs text-[#8c8273]">Oxford, United Kingdom • 10-Day Albertine Rift Safari</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 rounded-lg border border-[#e5dfd2] shadow-sm flex flex-col justify-between space-y-6 fade-in-view fade-in-delay-1">
+        <div class="space-y-4">
+          <div class="text-[#c89b53]">
+            <svg class="w-8 h-8 opacity-40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
+          <p class="text-xs sm:text-sm text-[#4d473e] italic leading-relaxed">
+            "Kidepo Valley felt like Africa from a century ago. Not another vehicle in sight for miles, watching lions on granite kopjes while cheetahs surveyed the golden grasslands. The logistics, flights, and bush accommodations were executed with Swiss precision."
+          </p>
+        </div>
+        <div class="border-t border-[#f0ede6] pt-4">
+          <span class="font-serif font-bold text-[#14261f] block text-sm">Marianne & Thomas Lindqvist</span>
+          <span class="text-xs text-[#8c8273]">Stockholm, Sweden • Kidepo & Murchison Wilderness</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 rounded-lg border border-[#e5dfd2] shadow-sm flex flex-col justify-between space-y-6 fade-in-view fade-in-delay-2">
+        <div class="space-y-4">
+          <div class="text-[#c89b53]">
+            <svg class="w-8 h-8 opacity-40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
+          <p class="text-xs sm:text-sm text-[#4d473e] italic leading-relaxed">
+            "As wildlife photographers, we needed flexibility and patience. Our driver naturalist Patrick anticipated light angles and animal movements with unbelievable intuition. We logged 22 Albertine Rift endemics and had a once-in-a-lifetime shoebill sighting in Mabamba."
+          </p>
+        </div>
+        <div class="border-t border-[#f0ede6] pt-4">
+          <span class="font-serif font-bold text-[#14261f] block text-sm">David Chen & Robert Scott</span>
+          <span class="text-xs text-[#8c8273]">San Francisco, USA • Uganda Birding & Endemics Quest</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 6: Bespoke Safari Planner CTA Banner -->
+  <section class="bg-[#112d23] text-white py-16 border-t border-[#1e4738]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 fade-in-view">
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#dfb674]">
+        Private Travel Concierge
+      </span>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+        Begin Crafting Your Bespoke Ugandan Expedition
+      </h2>
+      <p class="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-[#ded6c4] font-light leading-relaxed">
+        Speak directly with our senior naturalist team in Kampala. We secure your official Uganda Wildlife Authority permits, tailor luxury lodges, and coordinate private 4x4 overland transfers.
+      </p>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/contact"
+          class="w-full sm:w-auto px-8 py-3.5 text-xs sm:text-sm font-semibold tracking-wider text-[#0e231b] uppercase bg-[#c89b53] hover:bg-[#d8af6e] rounded transition-colors shadow-md"
+        >
+          Request Custom Itinerary Proposal
+        </a>
+        <a
+          href="https://wa.me/256784811929"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto px-8 py-3.5 text-xs sm:text-sm font-semibold tracking-wider text-white uppercase bg-[#183d30] hover:bg-[#204e3e] border border-[#c89b53]/40 rounded transition-colors flex items-center justify-center space-x-2"
+        >
+          <svg class="w-4 h-4 text-[#c89b53]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.245-.038.384.296.144.346.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.178.21-.077.383.101.173.45 1.488 1.433 2.364.382.34.704.457.946.554.218.087.378.077.518-.087.144-.173.607-.707.768-.953.159-.246.318-.202.534-.116.217.087 1.373.647 1.609.764.236.116.393.173.45.275.058.101.058.592-.086.997z"/>
+          </svg>
+          <span>Chat on WhatsApp: +256 784 811 929</span>
+        </a>
+      </div>
+
+      <p class="text-xs text-[#a99e89] pt-2">
+        Demonstration Showcase • Direct UWA Permit Booking Coordination • AMREF Flying Doctors Standard
+      </p>
+    </div>
+  </section>
+
+</Layout>

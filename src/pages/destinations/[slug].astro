@@ -1,0 +1,280 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SafariCard from '../../components/SafariCard.astro';
+import { destinationsData, type Destination } from '../../data/destinations';
+import { safarisData } from '../../data/safaris';
+
+export async function getStaticPaths() {
+  return destinationsData.map((destination) => ({
+    params: { slug: destination.slug },
+    props: { destination },
+  }));
+}
+
+interface Props {
+  destination: Destination;
+}
+
+const { destination } = Astro.props;
+
+// Find safaris that visit this destination
+const relatedSafaris = safarisData.filter((safari) =>
+  safari.destinations.some((dest) =>
+    destination.name.toLowerCase().includes(dest.toLowerCase()) ||
+    dest.toLowerCase().includes(destination.id)
+  )
+);
+---
+
+<Layout
+  title={`${destination.name} Wildlife Guide`}
+  description={destination.summary}
+  image={destination.heroImage}
+>
+
+  <!-- Hero Banner -->
+  <section class="relative min-h-[55vh] flex items-end bg-[#091711] overflow-hidden pb-16 pt-32">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={destination.heroImage}
+        alt={destination.name}
+        class="w-full h-full object-cover object-center brightness-[0.55]"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0e231b] via-[#091711]/60 to-black/40"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center space-x-2 text-xs text-[#ded6c4] mb-4">
+        <a href="/" class="hover:text-[#c89b53] transition-colors">Home</a>
+        <span>/</span>
+        <a href="/destinations" class="hover:text-[#c89b53] transition-colors">National Parks</a>
+        <span>/</span>
+        <span class="text-[#c89b53] font-medium">{destination.name}</span>
+      </nav>
+
+      <div class="inline-block px-3 py-1 text-[11px] font-semibold tracking-wider uppercase bg-[#16382c]/80 text-[#dfb674] rounded border border-[#c89b53]/30 mb-3">
+        {destination.region}
+      </div>
+
+      <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight max-w-4xl text-[#faf8f5]">
+        {destination.name}
+      </h1>
+
+      <p class="mt-4 max-w-3xl text-sm sm:text-base text-[#ded6c4] font-light leading-relaxed">
+        {destination.summary}
+      </p>
+
+      <!-- Ecological Parameters Strip -->
+      <div class="mt-8 pt-6 border-t border-[#294c3d]/60 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
+        <div>
+          <span class="text-[10px] text-[#a99e89] uppercase tracking-wider block">Elevation</span>
+          <span class="font-serif text-lg font-bold text-white">{destination.elevation}</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-[#a99e89] uppercase tracking-wider block">Protected Area</span>
+          <span class="font-serif text-lg font-bold text-[#dfb674]">{destination.areaKm2}</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-[#a99e89] uppercase tracking-wider block">Recommended Stay</span>
+          <span class="font-serif text-lg font-bold text-white">{destination.recommendedStay}</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-[#a99e89] uppercase tracking-wider block">Access</span>
+          <span class="font-serif text-lg font-bold text-white">4x4 Overland & Flights</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <div class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Left Main Details Column -->
+      <div class="lg:col-span-8 space-y-14">
+        
+        <!-- Overview & Habitat -->
+        <section class="space-y-4 fade-in-view">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Ecological Profile
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#14261f]">
+            About the Wilderness
+          </h2>
+          <p class="text-sm sm:text-base text-[#544e45] leading-relaxed">
+            {destination.overview}
+          </p>
+
+          <!-- Signature Experience Card -->
+          <div class="mt-6 p-6 rounded-xl bg-[#142c22] text-white space-y-2 border border-[#2b5946]">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#dfb674] block">
+              Signature Wildlife Encounter
+            </span>
+            <p class="font-serif text-lg sm:text-xl font-bold leading-snug">
+              {destination.signatureExperience}
+            </p>
+          </div>
+        </section>
+
+        <!-- Key Species & Wildlife -->
+        <section class="space-y-6 fade-in-view">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Biodiversity
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#14261f]">
+            Key Species & Endemics
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {destination.keyWildlife.map((animal) => (
+              <div class="flex items-center space-x-3 p-3.5 rounded bg-white border border-[#e5dfd2]">
+                <div class="w-5 h-5 rounded-full bg-[#142c22] text-[#c89b53] flex items-center justify-center shrink-0">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span class="text-xs sm:text-sm font-medium text-[#38342e]">{animal}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Month by Month Seasonal Guide -->
+        <section class="space-y-6 fade-in-view">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Weather & Seasons
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#14261f]">
+            When to Visit {destination.name}
+          </h2>
+          <div class="space-y-4">
+            {destination.monthlyGuide.map((guide) => (
+              <div class="p-5 rounded-lg bg-white border border-[#e5dfd2] shadow-sm">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#f0ede6] pb-2 mb-2">
+                  <h4 class="font-serif text-base font-bold text-[#14261f]">{guide.season}</h4>
+                  <span class="text-xs font-semibold text-[#c89b53]">{guide.months}</span>
+                </div>
+                <p class="text-xs sm:text-sm text-[#544e45] leading-relaxed">{guide.conditions}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Verified Luxury Lodge Partners -->
+        <section class="space-y-6 fade-in-view">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Accommodations
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#14261f]">
+            Partner Luxury Eco-Lodges & Tented Camps
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {destination.lodgePartners.map((lodge) => (
+              <div class="bg-white p-5 rounded-lg border border-[#e5dfd2] shadow-sm space-y-2">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-serif text-base font-bold text-[#14261f]">{lodge.name}</h4>
+                  <span class="text-[10px] font-bold uppercase tracking-wider bg-[#f5f2eb] text-[#827a6f] px-2 py-0.5 rounded border border-[#e5dfd2]">
+                    {lodge.tier}
+                  </span>
+                </div>
+                <p class="text-xs text-[#544e45] leading-relaxed">{lodge.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Practical Field Tips -->
+        <section class="space-y-4 fade-in-view">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block">
+            Field Advisory
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#14261f]">
+            Practical Traveler Guidance
+          </h2>
+          <div class="bg-[#f3efe6] p-6 rounded-xl border border-[#ded7c8] space-y-3">
+            {destination.practicalTips.map((tip, idx) => (
+              <div class="flex items-start space-x-3 text-xs sm:text-sm text-[#4d473e]">
+                <span class="w-5 h-5 rounded-full bg-[#142c22] text-[#c89b53] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
+                  {idx + 1}
+                </span>
+                <span class="leading-relaxed">{tip}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Sidebar (Consultation & Park Quick Inquire) -->
+      <aside class="lg:col-span-4 space-y-8">
+        <div class="sticky top-32 bg-white rounded-xl border border-[#dcd6c8] p-6 shadow-lg space-y-6">
+          <div class="border-b border-[#f0ede6] pb-4">
+            <span class="text-[10px] text-[#8c8273] uppercase tracking-wider block">Bespoke Park Outfitting</span>
+            <span class="font-serif text-xl font-bold text-[#14261f] block mt-1">
+              Visit {destination.name}
+            </span>
+            <span class="text-xs text-[#8c8273] block mt-1">Private 4x4 Overland Expeditions & Bush Flights</span>
+          </div>
+
+          <p class="text-xs text-[#544e45] leading-relaxed">
+            Our operations team arranges park entrance permits, private custom 4x4 Land Cruisers with senior naturalists, and luxury lodge bookings for {destination.name}.
+          </p>
+
+          <a
+            href={`/contact?destination=${encodeURIComponent(destination.name)}`}
+            class="w-full inline-block text-center py-3 px-4 text-xs font-semibold uppercase tracking-wider text-[#0e231b] bg-[#c89b53] hover:bg-[#d8af6e] rounded transition-colors shadow"
+          >
+            Inquire for This Destination
+          </a>
+
+          <a
+            href="https://wa.me/256784811929"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-3 text-xs font-medium text-[#14261f] bg-[#f5f2eb] hover:bg-[#ded7c8] rounded transition-colors"
+          >
+            <svg class="w-4 h-4 text-[#2b724c]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.245-.038.384.296.144.346.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.178.21-.077.383.101.173.45 1.488 1.433 2.364.382.34.704.457.946.554.218.087.378.077.518-.087.144-.173.607-.707.768-.953.159-.246.318-.202.534-.116.217.087 1.373.647 1.609.764.236.116.393.173.45.275.058.101.058.592-.086.997z"/>
+            </svg>
+            <span>WhatsApp Quick Desk</span>
+          </a>
+
+          <div class="border-t border-[#f0ede6] pt-3 text-[11px] text-[#8c8273] space-y-1">
+            <p>• Official UWA Booking Partner</p>
+            <p>• AMREF Air Evacuation Included</p>
+            <p>• Verified Private Guiding Team</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Related Safaris Section -->
+  {relatedSafaris.length > 0 && (
+    <section class="py-16 bg-[#f3efe6] border-t border-[#ded7c8]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#c89b53] block mb-1">
+              Curated Routes
+            </span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#14261f]">
+              Safaris That Visit {destination.name}
+            </h2>
+          </div>
+          <a href="/safaris" class="text-xs font-semibold uppercase tracking-wider text-[#14261f] hover:text-[#c89b53] transition-colors">
+            View All Safaris &rarr;
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {relatedSafaris.map((item) => (
+            <SafariCard safari={item} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+</Layout>

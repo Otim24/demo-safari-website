@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileQuickBar from '../components/MobileQuickBar.astro';
+import ScrollRevealScript from '../components/ScrollRevealScript.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = "Uganda's premier bespoke safari outfitter. Private mountain gorilla habituation in Bwindi, chimpanzee tracking in Kibale, tree-climbing lions, and custom 4x4 overland expeditions across the Albertine Rift.",
+  image = "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=1600&q=80",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kigeziriftexpeditions.com');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c89b53'><path d='M12 2L2 22h20L12 2zm0 5l6 12H6l6-12z'/></svg>" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title} | Demo Safaris Uganda</title>
+    <meta name="title" content={`${title} | Demo Safaris Uganda`} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Demo Safaris Uganda`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={`${title} | Demo Safaris Uganda`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Google Fonts Preconnect and Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Astro View Transitions for Seamless Navigation -->
+    <ClientRouter />
+  </head>
+  <body class="bg-[#faf8f5] text-[#1b1917] flex flex-col min-h-screen selection:bg-[#c89b53]/25 selection:text-[#0e231b]">
+    <Header currentPath={Astro.url.pathname} />
+    
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer />
+    <MobileQuickBar />
+    <ScrollRevealScript />
+  </body>
+</html>
